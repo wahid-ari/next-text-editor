@@ -11,6 +11,7 @@ body {
 	font-family: "Plus Jakarta Sans", sans-serif;
 }
 
+/* REACT DRAFT WYSWYG  */
 .rdw-dropdown-wrapper {
 	@apply dark:text-black;
 }
@@ -50,4 +51,15 @@ body {
 
 .rdw-image-modal-url-section > input {
 	@apply dark:bg-white;
+}
+
+/* WANGEDITOR  */
+.w-e-full-screen-container {
+	@apply z-50;
+}
+
+@layer utilities {
+	.prose :where(iframe):not(:where([class~="not-prose"] *)) {
+		@apply aspect-video w-[650px] h-auto mx-auto;
+	}
 }
