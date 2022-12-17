@@ -44,7 +44,8 @@ export default function Wang() {
             prose-td:p-2 prose-td:border prose-td:border-neutral-200 dark:prose-td:border-neutral-700
             even:prose-tr:bg-neutral-100 dark:even:prose-tr:bg-[#111]
             prose-hr:my-8 dark:prose-hr:border-neutral-700
-            prose-img:rounded prose-img:my-6"
+            prose-img:rounded prose-img:my-6 prose-img:mx-auto
+            dark:prose-p:text-neutral-100"
             dangerouslySetInnerHTML={{ __html: html }}
           />
 

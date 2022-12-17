@@ -213,7 +213,7 @@ export default function MyEditor({ html, setHtml }) {
           onCreated={setEditor}
           onChange={editor => setHtml(editor.getHtml())}
           mode="default"
-          className="overflow-y-hidden prose dark:prose-invert prose-a:text-blue-500 min-w-full prose-pre:text-black prose-img:rounded"
+          className="overflow-y-hidden prose prose-a:text-blue-500 min-w-full prose-pre:text-black prose-img:rounded"
           style={{ height: '500px' }}
         />
       </div>
