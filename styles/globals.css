@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	overflow-x: hidden;
+	font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.rdw-dropdown-wrapper {
+	@apply dark:text-black;
+}
+
+.rdw-colorpicker-wrapper {
+	@apply dark:text-black;
+}
+
+.rdw-link-wrapper {
+	@apply dark:text-black;
+}
+
+.rdw-link-modal > input {
+	@apply dark:bg-white;
+}
+
+.rdw-embed-wrapper,
+.rdw-embedded-modal {
+	@apply dark:text-black;
+}
+
+.rdw-embedded-modal-link-section > span > input {
+	@apply dark:bg-white;
+}
+
+.rdw-embedded-modal-size > span > input {
+	@apply dark:bg-white;
+}
+
+.rdw-image-wrapper {
+	@apply dark:text-black;
+}
+
+.rdw-image-modal-size > input {
+	@apply dark:bg-white;
+}
+
+.rdw-image-modal-url-section > input {
+	@apply dark:bg-white;
+}
