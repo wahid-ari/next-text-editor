@@ -29,8 +29,6 @@ export default function Wang() {
             Wangeditor
             <a href="https://www.wangeditor.com/en/" target="_blank" rel="noreferrer" className="ml-4 text-base text-sky-500 hover:text-sky-600 mb-8">Docs</a>
           </h1>
-          
-          
 
           <MyEditor value={html} setHtml={setHtml} />
 
@@ -41,12 +39,12 @@ export default function Wang() {
 
           <p className="dark:text-white text-xl mt-4">Rendered</p>
           <div className="prose dark:prose-invert prose-a:text-blue-500 py-4 min-w-full 
-          md:prose-table:w-auto prose-table:border-collapse    
-          prose-th:p-2 prose-th:border prose-th:border-neutral-200 dark:prose-th:border-neutral-700
-          prose-td:p-2 prose-td:border prose-td:border-neutral-200 dark:prose-td:border-neutral-700
-          even:prose-tr:bg-neutral-100 dark:even:prose-tr:bg-[#111]
-          prose-hr:my-8 dark:prose-hr:border-neutral-700
-          prose-"
+            md:prose-table:w-auto prose-table:border-collapse    
+            prose-th:p-2 prose-th:border prose-th:border-neutral-200 dark:prose-th:border-neutral-700
+            prose-td:p-2 prose-td:border prose-td:border-neutral-200 dark:prose-td:border-neutral-700
+            even:prose-tr:bg-neutral-100 dark:even:prose-tr:bg-[#111]
+            prose-hr:my-8 dark:prose-hr:border-neutral-700
+            prose-img:rounded prose-img:my-6"
             dangerouslySetInnerHTML={{ __html: html }}
           />
 

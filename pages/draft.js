@@ -52,6 +52,7 @@ export default function Home() {
       // https://api.imgbb.com/
       // nano-studio
       // Your account is connected to Google (nano.studioo)
+      // key = 3370154ba7d4e63c7c5b9cedcf3ca7a7
       const res = await axios.post("https://api.imgbb.com/1/upload?expiration=600&key=3370154ba7d4e63c7c5b9cedcf3ca7a7",
         data
       )
@@ -74,6 +75,7 @@ export default function Home() {
     //   https://api.imgbb.com/
     //   nano-studio
     //   Your account is connected to Google (nano.studioo)
+    //   key = 3370154ba7d4e63c7c5b9cedcf3ca7a7
     //   axios.post("https://api.imgbb.com/1/upload?expiration=600&key=3370154ba7d4e63c7c5b9cedcf3ca7a7", data)
     //     .then(responseImage => {
     //       console.log(responseImage)
