@@ -50,6 +50,8 @@ export default function Home() {
     data.append("image", file)
     try {
       // https://api.imgbb.com/
+      // nano-studio
+      // Your account is connected to Google (nano.studioo)
       const res = await axios.post("https://api.imgbb.com/1/upload?expiration=600&key=3370154ba7d4e63c7c5b9cedcf3ca7a7",
         data
       )
@@ -98,6 +100,8 @@ export default function Home() {
           <h1 className="text-3xl text-neutral-800 dark:text-white font-semibold tracking-wide mb-8">
             Draft.js
           </h1>
+
+          <p className="dark:text-white mb-4">in Next.js 13, we need to disable reactStrictMode=false in next.config.js. this cause some dropdown of react wyswyg editor not working in react 18. or need reload this page</p>
 
           <div className="font-normal font-sans bg-white p-2 border-2 dark:border-neutral-700 rounded-lg mb-3">
             <Editor
