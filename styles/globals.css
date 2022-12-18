@@ -63,3 +63,12 @@ body {
 		@apply aspect-video w-[650px] h-auto mx-auto;
 	}
 }
+
+span[contenteditable="false"] > input[type="checkbox"] {
+	@apply bg-white dark:bg-white checked:bg-green-500 dark:checked:bg-green-500 
+	focus:border-indigo-300 focus:ring-0 focus:ring-offset-0 rounded border;
+}
+
+.prose > div[data-w-e-type="todo"] > input[type="checkbox"] {
+	@apply bg-white dark:bg-[#111] checked:bg-green-500 dark:checked:bg-green-500 focus:border-indigo-300 rounded border mr-2;
+}
