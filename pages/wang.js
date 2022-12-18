@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 
 const MyEditor = dynamic(
   () => import("@components/MyEditor"),
-  { ssr: false }
+  { ssr: false, loading: () => <p className="dark:text-white">Loading ...</p> }
 );
 
 export default function Wang() {

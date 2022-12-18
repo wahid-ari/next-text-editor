@@ -9,7 +9,7 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const Editor = dynamic(
   () => import("react-draft-wysiwyg").then((mod) => mod.Editor),
-  { ssr: false }
+  { ssr: false, loading: () => <p className="dark:text-black">Loading ...</p>}
 );
 
 export default function Home() {

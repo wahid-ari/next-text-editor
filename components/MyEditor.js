@@ -46,7 +46,7 @@ export default function MyEditor({ html, setHtml }) {
         // max length of uploaded files
         maxNumberOfFiles: 10,
         // file types, default `['image/*']`. If unwanted, you can set []
-        allowedFileTypes: ['image/*'],
+        allowedFileTypes: ['.jpg', '.jpeg', '.png', '.webp'],
         // custom upload params, like token
         // meta: {
         //   token: 'xxx',
@@ -108,6 +108,8 @@ export default function MyEditor({ html, setHtml }) {
         server: 'https://www.filestackapi.com/api/store/S3?key=ALHqeeKNATfyIfquYr9Acz',
         // timeout: 5 * 1000, // 5s
         fieldName: 'file',
+        // file types, default `['image/*']`. If unwanted, you can set []
+        allowedFileTypes: ['.pdf'],
         // meta: { token: 'xxx', a: 100 },
         // metaWithUrl: true,
         // headers: { Accept: 'text/x-json' },
