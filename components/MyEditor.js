@@ -92,9 +92,14 @@ export default function MyEditor({ html, setHtml }) {
         },
         customInsert(res, insertFn) {
           // `res` is server response
-          // console.log(res.data.url)
+          console.log(res)
           // Get image's url, alt, href in res, and insert to editor
-          const url = res.data.url
+          // 1365x767
+          // const url = res.data.url
+          // 640x360
+          const url = res.data.display_url
+          // 180x180
+          // const url = res.data.thumb.url
           const alt = "new image"
           insertFn(url, alt, url)
         },
@@ -137,7 +142,7 @@ export default function MyEditor({ html, setHtml }) {
         //   console.log('customInsert', res)
         //   const { url } = res.data || {}
         //   if (!url) throw new Error(`url is empty`)
-        //   // insert to editor
+          // insert to editor
         //   insertFn(`customInsert-${file.name}`, url)
         // },
         customUpload(file, insertFn) {
@@ -181,8 +186,8 @@ export default function MyEditor({ html, setHtml }) {
         },
         // customBrowseAndUpload(insertFn: Function) {
         //   alert('select your files')
-        //   // upload your files
-        //   // Do `insertFn(fileName, link)` to insert file into editor.
+          // upload your files
+          // Do `insertFn(fileName, link)` to insert file into editor.
         // },
         onInsertedAttachment(elem) {
           // console.log('inserted attachment', elem)

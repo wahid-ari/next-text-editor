@@ -96,7 +96,12 @@ export default function Draft() {
       console.log(res)
       if (res.status == 200) {
         return Promise.resolve(
-          { data: { link: res.data.data.url } }
+          // 1365x767
+          // { data: { link: res.data?.data?.url } }
+          // 640x360
+          { data: { link: res.data?.data?.display_url } }
+          // 180x180
+          // { data: { link: res.data?.data?.thumb?.url } }
         )
         // return (
         //   { data: { link: res.data.data.url } }

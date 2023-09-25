@@ -41,7 +41,7 @@ export default function Wang() {
             <a href="https://www.wangeditor.com/en/" target="_blank" rel="noreferrer" className="ml-4 text-base text-sky-500 hover:text-sky-600 mb-8">Docs</a>
           </h1>
 
-          <MyEditor value={html} setHtml={setHtml} />
+          <MyEditor html={html} setHtml={setHtml} />
 
           <p className="dark:text-white font-medium text-xl pt-4 mt-4">HTML</p>
           <div className="py-4">
