@@ -23,6 +23,9 @@ export default function Navbar() {
         <Link href="/wang" className="text-sky-500 hover:text-sky-600 transition-all font-medium">
           Wang
         </Link>
+        <Link href="/typography" className="text-sky-500 hover:text-sky-600 transition-all font-medium">
+            Typography
+        </Link>
       </div>
       <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
           <ThemeChanger simple />

@@ -1,7 +1,8 @@
-import { GlobalProvider } from "@utils/GlobalContext";
+// import { GlobalProvider } from "@utils/GlobalContext";
 import "@styles/globals.css";
-import '@styles/atom-one-dark.css'
-import { Inter } from '@next/font/google';
+import '@styles/atom-one-dark.css';
+import '@styles/prism.css';
+import { Inter } from 'next/font/google';
 import { ThemeProvider } from 'next-themes'
 
 const inter = Inter({ subsets: ['latin'] })

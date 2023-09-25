@@ -38,7 +38,26 @@ export default function Draft() {
     setDefaultValue({
       value: EditorState.createWithContent(
         ContentState.createFromBlockArray(
-          convertFromHTML('<p>My initial content.</p>')
+          convertFromHTML(`<h3>When a heading comes after a paragraph …</h3>
+      <p>When a heading comes after a paragraph, we need a bit more space, like I already mentioned above. Now let's see what a more complex list would look like.</p>
+      <ul>
+        <li>
+          <p><strong>I often do this thing where list items have headings.</strong></p>
+          <p>For some reason I think this looks cool which is unfortunate because it's pretty annoying to get the styles right.</p>
+          <p>I often have two or three paragraphs in these list items, too, so the hard part is getting the spacing between the paragraphs, list item heading, and separate list items to all make sense. Pretty tough honestly, you could make a strong argument that you just shouldn't write this way.</p>
+        </li>
+        <li>
+          <p><strong>Since this is a list, I need at least two items.</strong></p>
+          <p>I explained what I'm doing already in the previous list item, but a list wouldn't be a list if it only had one item, and we really want this to look realistic. That's why I've added this second list item so I actually have something to look at when writing the styles.</p>
+        </li>
+        <li>
+          <p><strong>It's not a bad idea to add a third item either.</strong></p>
+          <p>I think it probably would've been fine to just use two items but three is definitely not worse, and since I seem to be having no trouble making up arbitrary things to type, I might as well include it.</p>
+        </li>
+      </ul>
+      <p>After this sort of list I usually have a closing statement or paragraph, because it kinda looks weird jumping right to a heading.</p>
+      <h2>Code should look okay by default.</h2>
+      <p>I think most people are going to use <a href="https://highlightjs.org/">highlight.js</a> or <a href="https://prismjs.com/">Prism</a> or something if they want to style their code blocks but it wouldn't hurt to make them look <em>okay</em> out of the box, even with no syntax highlighting.</p>`)
         )
       ),
     })
@@ -155,8 +174,8 @@ export default function Draft() {
               toolbar={{
                 // options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'list', 'textAlign', 'colorPicker', 'link', 'embedded', 'emoji', 'image', 'history'],
                 inline: { inDropdown: true },
-                list: { inDropdown: true },
-                textAlign: { inDropdown: true },
+                list: { inDropdown: false },
+                textAlign: { inDropdown: false },
                 link: { inDropdown: true },
                 history: { inDropdown: true },
                 image: {
@@ -199,7 +218,7 @@ export default function Draft() {
             }
           </div>
 
-          <div className="pb-8" dangerouslySetInnerHTML={{ __html: stateToHTML(defaultValue.value.getCurrentContent()) }} />
+          <div className="prose dark:prose-invert py-8" dangerouslySetInnerHTML={{ __html: stateToHTML(defaultValue.value.getCurrentContent()) }} />
         </div>
       </main>
     </div>

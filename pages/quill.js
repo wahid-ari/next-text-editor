@@ -2,14 +2,22 @@ import { useState, useMemo } from "react";
 import Head from 'next/head';
 import dynamic from "next/dynamic";
 import Navbar from '@components/Navbar';
+import hljs from 'highlight.js';
 // import axios from "axios";
 
 import "react-quill/dist/quill.snow.css";
 import "react-quill/dist/quill.bubble.css";
+import 'highlight.js/styles/atom-one-dark.css'
 
 export default function Quill() {
 
-  const ReactQuill = useMemo(() => dynamic(() => import("react-quill"),
+  const ReactQuill = useMemo(() => dynamic(() => {
+    hljs.configure({
+      languages: ['javascript', 'php', 'go']
+    })
+    window.hljs = hljs
+    return import("react-quill")
+  },
     { ssr: false, loading: () => <p className="dark:text-black">Loading ...</p> }),
     []);
 
@@ -19,17 +27,20 @@ export default function Quill() {
     setDescription(e);
   };
 
-  const modules = {
-    toolbar: [
-      [{ 'header': [1, 2, false] }],
-      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-      [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
-      ['link', 'image'],
-      ['clean']
-    ],
-  }
-
-  const [defaultValue, setDefaultValue] = useState('<h1>React Quill</h1>');
+  const [defaultValue, setDefaultValue] = useState(`<h2>What to expect from here on out</h2>
+      <p>What follows from here is just a bunch of absolute nonsense I've written to dogfood the plugin itself. It includes every sensible typographic element I could think of, like <strong>bold text</strong>, unordered lists, ordered lists, code blocks, block quotes, <em>and even italics</em>.</p>
+      <p>It's important to cover all of these use cases for a few reasons:</p>
+      <ol>
+        <li>We want everything to look good out of the box.</li>
+        <li>Really just the first reason, that's the whole point of the plugin.</li>
+        <li>Here's a third pretend reason though a list with three items looks more realistic than a list with two items.</li>
+      </ol>
+      <p>Now we're going to try out another header style.</p>
+      <h3>Typography should be easy</h3>
+      <p>So that's a header for you — with any luck if we've done our job correctly that will look pretty reasonable.</p>
+      <p>Something a wise person once told me about typography is:</p>
+      <blockquote><p>Typography is pretty important if you don't want your stuff to look like trash. Make it good then it won't be bad.</p></blockquote>
+      <p>It's probably important that images look okay here by default as well:</p>`);
 
   function handleValueChange(e) {
     setDefaultValue(e);
@@ -56,6 +67,10 @@ export default function Quill() {
               theme="snow"
               onChange={handleDescriptionChange}
               modules={{
+                // syntax: {
+                //   highlight: text => hljs.highlightAuto(text).value,
+                // },
+                syntax: true,
                 toolbar: [
                   [{ 'header': [1, 2, 3, 4, false] }],
                   [{ 'size': ['small', false, 'large', 'huge'] }],
@@ -67,7 +82,7 @@ export default function Quill() {
                   [{ 'script': 'sub' }, { 'script': 'super' }],
                   [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
                   // [{ 'font': [] }], 
-                  ['clean']   
+                  ['clean']
                 ],
               }}
             />
@@ -97,7 +112,7 @@ export default function Quill() {
             Preview
           </h1>
 
-          <div dangerouslySetInnerHTML={{ __html: description }} />
+          <div className="prose dark:prose-invert" dangerouslySetInnerHTML={{ __html: description }} />
 
           <h1 className="text-3xl mt-8 text-neutral-800 dark:text-white font-semibold tracking-wide mb-8">
             React Quill Default Value
@@ -135,7 +150,7 @@ export default function Quill() {
             Preview
           </h1>
 
-          <div dangerouslySetInnerHTML={{ __html: defaultValue }} />
+          <div className="prose dark:prose-invert" dangerouslySetInnerHTML={{ __html: defaultValue }} />
 
         </div>
       </main>
