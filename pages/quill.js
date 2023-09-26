@@ -152,7 +152,7 @@ export default function Quill() {
             React Quill
           </h1>
 
-          <div className="font-normal text-lg font-sans bg-white dark:text-neutral-800 mb-3">
+          <div className="font-normal text-lg font-sans bg-white rounded dark:text-neutral-800 mb-3">
             <ReactQuillImage
               theme="snow"
               onChange={handleDescriptionChange}
@@ -173,7 +173,7 @@ export default function Quill() {
             Read Only
           </h1>
 
-          <div className="font-normal text-lg font-sans bg-white dark:text-neutral-800 mb-3">
+          <div className="font-normal text-lg font-sans bg-white rounded dark:text-neutral-800 mb-3">
             <ReactQuill
               theme="bubble"
               value={description}
@@ -193,7 +193,7 @@ export default function Quill() {
             React Quill Default Value
           </h1>
 
-          <div className="font-normal text-lg font-sans bg-white dark:text-neutral-800 mb-3">
+          <div className="font-normal text-lg font-sans bg-white rounded dark:text-neutral-800 mb-3">
             <ReactQuill
               theme="snow"
               value={defaultValue}
@@ -213,7 +213,7 @@ export default function Quill() {
             Read Only Default Value
           </h1>
 
-          <div className="font-normal text-lg font-sans bg-white dark:text-neutral-800 mb-3">
+          <div className="font-normal text-lg font-sans bg-white rounded dark:text-neutral-800 mb-3">
             <ReactQuill
               theme="bubble"
               value={defaultValue}
