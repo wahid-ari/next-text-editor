@@ -22,13 +22,17 @@
     "draft-js-export-html": "^1.4.1",
     "draft-js-import-html": "^1.4.1",
     "highlight.js": "^11.8.0",
+    "katex": "^0.16.8",
     "next": "^13.5.2",
     "next-themes": "^0.2.1",
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-draft-wysiwyg": "^1.14.7",
-    "react-quill": "^2.0.0"
+    "react-quill": "^2.0.0",
+    "suneditor": "^2.45.1",
+    "suneditor-react": "^3.6.1",
+    "tailwind-merge": "^1.14.0"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",

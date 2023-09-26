@@ -14,6 +14,9 @@ export default function Navbar() {
         <Link href="/" className="text-sky-500 hover:text-sky-600 transition-all font-medium">
           Home
         </Link>
+        <Link href="/sun" className="text-sky-500 hover:text-sky-600 transition-all font-medium">
+          Sun
+        </Link>
         <Link href="/quill" className="text-sky-500 hover:text-sky-600 transition-all font-medium">
           Quill
         </Link>
