@@ -13,7 +13,7 @@ import Shimmer from "@components/Shimmer";
 export default function Quill() {
 
   // TODO Docs : https://abdullahcanakci.org/en/posts/reactquill-imageupload/
-  const ReactQuillImage = useMemo(() => dynamic(
+  const   ReactQuillImage = useMemo(() => dynamic(
     async () => {
       hljs.configure({
         languages: ['javascript', 'php', 'go']

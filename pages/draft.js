@@ -155,7 +155,7 @@ export default function Draft() {
 
           <div className={`font-normal font-sans border-2 dark:border-neutral-700 rounded-lg mb-3`}>
             <Editor
-              wrapperClassName="min-h-[10rem] bg-white p-2 rounded"
+              wrapperClassName="min-h-[16rem] bg-white p-2 rounded"
               editorState={description.description}
               onEditorStateChange={handleDescriptionChange}
               editorClassName="prose min-w-full"
