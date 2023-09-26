@@ -8,6 +8,7 @@ import axios from "axios";
 import "react-quill/dist/quill.snow.css";
 import "react-quill/dist/quill.bubble.css";
 import 'highlight.js/styles/atom-one-dark.css'
+import Shimmer from "@components/Shimmer";
 
 export default function Quill() {
 
@@ -23,7 +24,12 @@ export default function Quill() {
       // eslint-disable-next-line react/display-name
       return ({ forwardedRef, ...props }) => <RQ ref={forwardedRef} {...props} />;
     },
-    { ssr: false, loading: () => <p className="dark:text-black">Loading ...</p> }),
+    {
+      ssr: false, loading: () => <Shimmer>
+        <div className='h-8 w-full rounded bg-neutral-300/70 dark:bg-neutral-700/50'></div>
+        <div className='mt-4 h-40 w-full rounded bg-neutral-300/70 dark:bg-neutral-700/50'></div>
+      </Shimmer>
+    }),
     []);
 
   const ReactQuill = useMemo(() => dynamic(() => {
@@ -33,7 +39,12 @@ export default function Quill() {
     window.hljs = hljs
     return import("react-quill")
   },
-    { ssr: false, loading: () => <p className="dark:text-black">Loading ...</p> }),
+    {
+      ssr: false, loading: () => <Shimmer>
+        <div className='h-8 w-full rounded bg-neutral-300/70 dark:bg-neutral-700/50'></div>
+        <div className='mt-4 h-40 w-full rounded bg-neutral-300/70 dark:bg-neutral-700/50'></div>
+      </Shimmer>
+    }),
     []);
 
   const [description, setDescription] = useState('');
@@ -52,8 +63,10 @@ export default function Quill() {
     input.click();
     input.onchange = async () => {
       const file = input.files[0];
+      // console.log(file)
       const fd = new FormData();
       fd.append("image", file);
+      // new Response(fd).text().then(console.log)
       // file type is only image.
       if (/^image\//.test(file.type)) {
         try {
@@ -139,7 +152,7 @@ export default function Quill() {
             React Quill
           </h1>
 
-          <div className="font-normal text-lg font-sans bg-white dark:text-neutral-800 p-2 border-2 dark:border-neutral-700 rounded-lg mb-3">
+          <div className="font-normal text-lg font-sans bg-white dark:text-neutral-800 mb-3">
             <ReactQuillImage
               theme="snow"
               onChange={handleDescriptionChange}
@@ -160,7 +173,7 @@ export default function Quill() {
             Read Only
           </h1>
 
-          <div className="font-normal text-lg font-sans bg-white dark:text-neutral-800 p-2 border-2 dark:border-neutral-700 rounded-lg mb-3">
+          <div className="font-normal text-lg font-sans bg-white dark:text-neutral-800 mb-3">
             <ReactQuill
               theme="bubble"
               value={description}
@@ -180,7 +193,7 @@ export default function Quill() {
             React Quill Default Value
           </h1>
 
-          <div className="font-normal text-lg font-sans bg-white dark:text-neutral-800 p-2 border-2 dark:border-neutral-700 rounded-lg mb-3">
+          <div className="font-normal text-lg font-sans bg-white dark:text-neutral-800 mb-3">
             <ReactQuill
               theme="snow"
               value={defaultValue}
@@ -200,7 +213,7 @@ export default function Quill() {
             Read Only Default Value
           </h1>
 
-          <div className="font-normal text-lg font-sans bg-white dark:text-neutral-800 p-2 border-2 dark:border-neutral-700 rounded-lg mb-3">
+          <div className="font-normal text-lg font-sans bg-white dark:text-neutral-800 mb-3">
             <ReactQuill
               theme="bubble"
               value={defaultValue}

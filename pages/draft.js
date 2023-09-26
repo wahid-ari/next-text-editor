@@ -6,14 +6,20 @@ import axios from "axios";
 import { EditorState, ContentState, convertFromHTML } from "draft-js";
 import { stateToHTML } from "draft-js-export-html";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import Shimmer from "@components/Shimmer";
 
 const Editor = dynamic(
   () => import("react-draft-wysiwyg").then((mod) => mod.Editor),
-  { ssr: false, loading: () => <p className="dark:text-black">Loading ...</p> }
+  {
+    ssr: false, loading: () => <Shimmer>
+      <div className='h-8 w-full rounded bg-neutral-300/70 dark:bg-neutral-700/50'></div>
+      <div className='mt-2 h-8 w-full rounded bg-neutral-300/70 dark:bg-neutral-700/50'></div>
+      <div className='mt-4 h-40 w-full rounded bg-neutral-300/70 dark:bg-neutral-700/50'></div>
+    </Shimmer>
+  }
 );
 
 export default function Draft() {
-
   const [description, setDescription] = useState({
     description: EditorState.createEmpty(),
   });
@@ -147,9 +153,9 @@ export default function Draft() {
 
           <p className="dark:text-white mb-4">in Next.js 13, we need to disable reactStrictMode=false in next.config.js. this cause some dropdown of react wyswyg editor not working in react 18. or need reload this page</p>
 
-          <div className="font-normal font-sans bg-white p-2 border-2 dark:border-neutral-700 rounded-lg mb-3">
+          <div className={`font-normal font-sans border-2 dark:border-neutral-700 rounded-lg mb-3`}>
             <Editor
-              wrapperClassName="min-h-[10rem]"
+              wrapperClassName="min-h-[10rem] bg-white p-2 rounded"
               editorState={description.description}
               onEditorStateChange={handleDescriptionChange}
               editorClassName="prose min-w-full"
@@ -168,11 +174,11 @@ export default function Draft() {
 
           <h2 className="text-xl dark:text-white font-semibold mb-4">With Upload Image</h2>
 
-          <div className="font-normal font-sans bg-white p-2 border-2 dark:border-neutral-700 rounded-lg mb-3">
+          <div className={`font-normal font-sans border-2 dark:border-neutral-700 rounded-lg mb-3`}>
             <Editor
               editorState={descriptionn.descriptionn}
               toolbarClassName="toolbar-class"
-              wrapperClassName="wrapper-class min-h-[8rem]"
+              wrapperClassName="wrapper-class min-h-[8rem] bg-white p-2 rounded"
               editorClassName="editor-class prose min-w-full prose-img:my-0 prose-p:py-0"
               onEditorStateChange={handleDescriptionnChange}
               // toolbarOnFocus
@@ -206,9 +212,9 @@ export default function Draft() {
             Draft.js Default Value
           </h1>
 
-          <div className="font-normal font-sans bg-white p-2 border-2 dark:border-neutral-700 rounded-lg mb-3">
+          <div className={`font-normal font-sans border-2 dark:border-neutral-700 rounded-lg mb-3`}>
             <Editor
-              wrapperClassName="min-h-[10rem]"
+              wrapperClassName="min-h-[10rem] bg-white p-2 rounded"
               editorState={defaultValue.value}
               onEditorStateChange={handleValueChange}
               editorClassName="prose min-w-full"
