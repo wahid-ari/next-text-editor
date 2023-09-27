@@ -251,7 +251,8 @@ export default function Sun() {
             }}
           />
 
-          <div className="py-8">
+          <h2 className="text-xl dark:text-white font-semibold mb-4 border-b dark:border-b-neutral-700 pb-2 pt-4">HTML</h2>
+          <div className="pb-8">
             {value &&
               <div >
                 {value}
@@ -259,6 +260,7 @@ export default function Sun() {
             }
           </div>
 
+          <h2 className="text-xl dark:text-white font-semibold mb-4 border-b dark:border-b-neutral-700 pb-2">Preview</h2>
           <div className="p-0 prose dark:prose-invert" dangerouslySetInnerHTML={{ __html: value }} />
         </div>
       </main>

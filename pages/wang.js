@@ -41,13 +41,13 @@ export default function Wang() {
 
           <MyEditor html={html} setHtml={setHtml} />
 
-          <p className="dark:text-white font-medium text-xl pt-4 mt-4">HTML</p>
-          <div className="py-4">
+          <h2 className="text-xl dark:text-white font-semibold mb-4 border-b dark:border-b-neutral-700 pb-2">HTML</h2>
+          <div className="pb-8">
             {html}
           </div>
 
-          <p className="dark:text-white font-medium text-xl mt-4">Rendered</p>
-          <div className="prose dark:prose-invert prose-a:text-blue-500 py-4 min-w-full 
+          <h2 className="text-xl dark:text-white font-semibold mb-4 border-b dark:border-b-neutral-700 pb-2">Preview</h2>
+          <div className="prose dark:prose-invert prose-a:text-blue-500 pb-4 min-w-full 
             md:prose-table:w-auto prose-table:border-collapse    
             prose-th:p-2 prose-th:border prose-th:border-neutral-200 dark:prose-th:border-neutral-700
             prose-td:p-2 prose-td:border prose-td:border-neutral-200 dark:prose-td:border-neutral-700

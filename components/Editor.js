@@ -11,6 +11,7 @@ import {
   getDefaultReactSlashMenuItems,
 } from "@blocknote/react";
 import "@blocknote/core/style.css";
+import Image from "next/image";
 
 // Custom light theme
 const lightTheme = {
@@ -98,29 +99,38 @@ const theme = {
 export default function Editor({ value, setValue }) {
   const { theme: currentTheme } = useTheme();
   // Creates a custom image block.
+  // FIX https://github.com/TypeCellOS/BlockNote/issues/282
+  // FIX https://github.com/TypeCellOS/BlockNote/pull/331
   const ImageBlock = createReactBlockSpec({
     type: "image",
     propSchema: {
       ...defaultProps,
       src: {
-        default: "https://via.placeholder.com/100",
+        default: "https://via.placeholder.com/200",
       }
     },
     containsInlineContent: true,
-    render: ({ block }) => (
-      <div id="image-wrapper">
-        <img
-          src={block.props.src}
-          alt={"Image"}
-          contentEditable={false}
-        />
-        <InlineContent />
-      </div>
-    ),
+    render: ({ block }) => {
+      console.log("block", block)
+      return (
+        <div id="image-wrapper" className="editor">
+          {/* <Image src={block.props.src}
+            alt={"Image"}
+            width={100}
+            height={100}
+            contentEditable={false} /> */}
+          <img
+            src={block.props.src}
+            alt={"Image"}
+            contentEditable={false}
+          />
+          <InlineContent />
+        </div>
+      )
+    },
   });
 
-  // The custom schema, which includes the default blocks and the custom image
-  // block.
+  // The custom schema, which includes the default blocks and the custom image block.
   const customSchema = {
     // Adds all default blocks.
     ...defaultBlockSchema,
@@ -132,15 +142,23 @@ export default function Editor({ value, setValue }) {
   const insertImage = {
     name: "Insert Image",
     execute: (editor) => {
+      console.log("execute")
+      console.log(editor)
       const src = prompt("Enter image URL");
-      const alt = prompt("Enter image alt text");
+      // const alt = prompt("Enter image alt text");
       editor.insertBlocks(
         [
           {
+            // content: [
+            //   {
+            //     type: 'text',
+            //     text: 'lala'
+            //   }
+            // ],
             type: "image",
             props: {
               src: src || "https://via.placeholder.com/100",
-              alt: alt || "image",
+              // alt: alt || "image",
             },
           },
         ],
@@ -150,9 +168,10 @@ export default function Editor({ value, setValue }) {
     },
     aliases: ["image", "img", "picture", "media"],
     group: "Media",
-    icon: <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1.3em" width="1.3em" xmlns="http://www.w3.org/2000/svg"><path d="M5 11.1005L7 9.1005L12.5 14.6005L16 11.1005L19 14.1005V5H5V11.1005ZM4 3H20C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3ZM15.5 10C14.6716 10 14 9.32843 14 8.5C14 7.67157 14.6716 7 15.5 7C16.3284 7 17 7.67157 17 8.5C17 9.32843 16.3284 10 15.5 10Z"></path></svg>,
+    icon: <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1.3em" width="1.3em" xmlns="http://www.w3.org/2000/svg"><path d="M5 11.1005L7 9.1005L12.5 14.6005L16 11.1005L19 14.1005V5H5V11.1005ZM4 3H20C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3ZM15.5 10C14.6716 10 14 9.32843 14 8.5C14 7.67157 14.6716 7 15.5 7C16.3284 7 17 7.67157 17 8.5C17 9.32843 16.3284 10 15.5 10Z"></path></svg>,
     hint: "Insert an image",
   };
+
   // / Creates a new editor instance.
   const editor = useBlockNote({
     // If the editor contents were previously saved, restores them.
@@ -165,9 +184,11 @@ export default function Editor({ value, setValue }) {
     // );
     // }
     onEditorContentChange: (editor) => {
+      console.log("onEditorContentChange")
       const saveBlocksAsHTML = async () => {
         const blocksToHTML = await editor.blocksToHTML(editor.topLevelBlocks);
         setValue(blocksToHTML);
+        console.log(blocksToHTML)
       };
       saveBlocksAsHTML();
     },
@@ -183,12 +204,15 @@ export default function Editor({ value, setValue }) {
     if (editor) {
       // Whenever the current HTML content changes, converts it to an array of 
       // Block objects and replaces the editor's content with them.
+      console.log("useEffect editor")
       const getBlocks = async () => {
         const blocks = await editor.HTMLToBlocks(value);
+        console.log(blocks)
         editor.replaceBlocks(editor.topLevelBlocks, blocks);
       };
       getBlocks();
     }
+    console.log("editor", editor)
   }, [editor]);
 
   // Renders the editor instance using a React component.

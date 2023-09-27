@@ -162,7 +162,8 @@ export default function Draft() {
             />
           </div>
 
-          <div className="pt-4">
+          <h2 className="text-xl dark:text-white font-semibold mb-4 border-b dark:border-b-neutral-700 pb-2">HTML</h2>
+          <div className="pb-8">
             {description.description &&
               <div className="mb-4">
                 {stateToHTML(description.description.getCurrentContent())}
@@ -170,8 +171,10 @@ export default function Draft() {
             }
           </div>
 
-          <div className="pb-8" dangerouslySetInnerHTML={{ __html: stateToHTML(description.description.getCurrentContent()) }} />
+                <h2 className="text-xl dark:text-white font-semibold mb-4 border-b dark:border-b-neutral-700 pb-2">Preview</h2>
+          <div dangerouslySetInnerHTML={{ __html: stateToHTML(description.description.getCurrentContent()) }} />
 
+          <hr className="border dark:border-neutral-700 my-8" />
           <h2 className="text-xl dark:text-white font-semibold mb-4">With Upload Image</h2>
 
           <div className={`font-normal font-sans border-2 dark:border-neutral-700 rounded-lg mb-3`}>
@@ -200,7 +203,8 @@ export default function Draft() {
             />
           </div>
 
-          <div className="py-4">
+          <h2 className="text-xl dark:text-white font-semibold mb-4 border-b dark:border-b-neutral-700 pb-2">HTML</h2>
+          <div className="pb-4">
             {descriptionn.descriptionn &&
               <div>
                 {stateToHTML(descriptionn.descriptionn.getCurrentContent())}
@@ -221,7 +225,8 @@ export default function Draft() {
             />
           </div>
 
-          <div className="pt-4">
+          <h2 className="text-xl dark:text-white font-semibold mb-4 border-b dark:border-b-neutral-700 pb-2">HTML</h2>
+          <div className="pb-4">
             {defaultValue.value &&
               <div className="mb-4">
                 {stateToHTML(defaultValue.value.getCurrentContent())}
@@ -229,7 +234,8 @@ export default function Draft() {
             }
           </div>
 
-          <div className="prose dark:prose-invert py-8" dangerouslySetInnerHTML={{ __html: stateToHTML(defaultValue.value.getCurrentContent()) }} />
+          <h2 className="text-xl dark:text-white font-semibold mb-4 border-b dark:border-b-neutral-700 pb-2">Preview</h2>
+          <div className="prose dark:prose-invert pb-8" dangerouslySetInnerHTML={{ __html: stateToHTML(defaultValue.value.getCurrentContent()) }} />
         </div>
       </main>
     </div>

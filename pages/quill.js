@@ -161,7 +161,8 @@ export default function Quill() {
             />
           </div>
 
-          <div className="py-8">
+          <h2 className="text-xl dark:text-white font-semibold mb-4 border-b dark:border-b-neutral-700 pb-2">HTML</h2>
+          <div className="pb-8">
             {description &&
               <div >
                 {description}
@@ -169,9 +170,7 @@ export default function Quill() {
             }
           </div>
 
-          <h1 className="text-2xl text-neutral-800 dark:text-white font-semibold tracking-wide mb-4">
-            Read Only
-          </h1>
+          <h2 className="text-xl dark:text-white font-semibold mb-4 border-b dark:border-b-neutral-700 pb-2">ReadOnly</h2>
 
           <div className="font-normal text-lg font-sans bg-white rounded dark:text-neutral-800 mb-3">
             <ReactQuill
@@ -181,9 +180,7 @@ export default function Quill() {
             />
           </div>
 
-          <h1 className="text-2xl text-neutral-800 dark:text-white font-semibold tracking-wide my-4">
-            Preview
-          </h1>
+          <h2 className="text-xl dark:text-white font-semibold mb-4 border-b dark:border-b-neutral-700 pb-2">Preview</h2>
 
           <div className="ql-editor !p-0 !prose dark:!prose-invert" dangerouslySetInnerHTML={{ __html: description }} />
 
@@ -201,7 +198,8 @@ export default function Quill() {
             />
           </div>
 
-          <div className="py-8">
+          <h2 className="text-xl dark:text-white font-semibold mb-4 border-b dark:border-b-neutral-700 pb-2">HTML</h2>
+          <div className="pb-8">
             {defaultValue &&
               <div >
                 {defaultValue}
@@ -209,9 +207,7 @@ export default function Quill() {
             }
           </div>
 
-          <h1 className="text-2xl text-neutral-800 dark:text-white font-semibold tracking-wide mb-4">
-            Read Only Default Value
-          </h1>
+          <h2 className="text-xl dark:text-white font-semibold mb-4 border-b dark:border-b-neutral-700 pb-2">Read Only Default Value</h2>
 
           <div className="font-normal text-lg font-sans bg-white rounded dark:text-neutral-800 mb-3">
             <ReactQuill
@@ -221,9 +217,7 @@ export default function Quill() {
             />
           </div>
 
-          <h1 className="text-2xl text-neutral-800 dark:text-white font-semibold tracking-wide my-4">
-            Preview Default Value
-          </h1>
+          <h2 className="text-xl dark:text-white font-semibold mb-4 border-b dark:border-b-neutral-700 pb-2">Preview Default Value</h2>
 
           <div className="ql-editor !p-0 !prose dark:!prose-invert" dangerouslySetInnerHTML={{ __html: defaultValue }} />
 
