@@ -11,6 +11,21 @@ body {
 	font-family: "Plus Jakarta Sans", sans-serif;
 }
 
+/* BLOCKNOTE */
+div.mantine-Editor-root > div > div[data-node-type="blockGroup"] {
+	padding-left: 8px !important;
+}
+div.mantine-Editor-root > div.tiptap {
+	padding-inline: 54px 10px !important;
+}
+input.mantine-Input-input.mantine-TextInput-input {
+	@apply dark:text-white dark:bg-neutral-900 !border !border-neutral-300 dark:!border-neutral-700 !px-2 !rounded;
+	border: 1px solid #bababa !important;
+}
+div.mantine-Group-root.mantine-Toolbar-root {
+	@apply flex-wrap sm:flex-nowrap overflow-auto
+}
+
 /* REACT QUILL  */
 .ql-container.ql-snow {
 	min-height: 200px;

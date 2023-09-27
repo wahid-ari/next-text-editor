@@ -26,6 +26,9 @@ export default function Navbar() {
         <Link href="/wang" className="text-sky-500 hover:text-sky-600 transition-all font-medium">
           Wang
         </Link>
+        <Link href="/blocknote" className="text-sky-500 hover:text-sky-600 transition-all font-medium">
+          Blocknote
+        </Link>
         <Link href="/typography" className="text-sky-500 hover:text-sky-600 transition-all font-medium">
             Typography
         </Link>

@@ -13,6 +13,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@blocknote/core": "^0.9.3",
+    "@blocknote/react": "^0.9.3",
     "@heroicons/react": "^1.0.5",
     "@wangeditor/editor": "^5.1.23",
     "@wangeditor/editor-for-react": "^1.0.6",

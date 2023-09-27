@@ -21,7 +21,7 @@ export default function Typography() {
 
       <main className="dark:bg-neutral-900 min-h-screen">
         <div className="max-w-5xl mx-auto p-3">
-          <div class="mt-8 mx-auto prose prose-blue prose-img:rounded-xl prose-a:text-sky-500 hover:prose-a:text-sky-600 dark:prose-invert transition-all duration-200
+          <div className="mt-8 mx-auto prose prose-blue prose-img:rounded-xl prose-a:text-sky-500 hover:prose-a:text-sky-600 dark:prose-invert transition-all duration-200
             prose-h1:mt-8 prose-h2:my-0 prose-h2:pt-6 prose-h2:pb-4 prose-h3:mt-4 prose-h4:mt-2
             prose-code:rounded prose-code:px-1.5 prose-code:py-0.5 prose-code:before:hidden prose-code:after:hidden dark:prose-code:bg-neutral-800 prose-code:bg-neutral-100 prose-code:text-neutral-900 dark:prose-code:text-neutral-100
             prose-pre:rounded-lg dark:prose-pre:bg-neutral-800 prose-pre:bg-white prose-pre:border dark:prose-pre:border-neutral-700
@@ -39,7 +39,7 @@ export default function Typography() {
             <p>We hear you, but were not convinced that simply disabling our base styles is what you really want. You dont want to have to remove annoying margins every time you use a <code>p</code> element in a piece of your dashboard UI. And I doubt you really want your blog posts to use the user-agent styles either — you want them to look <em>awesome</em>, not awful.</p>
             <p>The <code>@tailwindcss/typography</code> plugin is our attempt to give you what you <em>actually</em> want, without any of the downsides of doing something stupid like disabling our base styles.</p>
             <p>It adds a new <code>prose</code> class that you can slap on any block of vanilla HTML content and turn it into a beautiful, well-formatted document:</p>
-            <pre><code class="language-html">{`<article class="prose">
+            <pre><code className="language-html">{`<article class="prose">
   <h1>Garlic bread with cheese: What the science tells us</h1>
   <p>
     For years parents have espoused the health benefits of eating garlic bread with cheese to their
