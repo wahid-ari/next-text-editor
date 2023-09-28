@@ -11,6 +11,11 @@ body {
 	font-family: "Plus Jakarta Sans", sans-serif;
 }
 
+/* TINYMCE */
+div.tox-statusbar__right-container {
+	@apply !hidden;
+}
+
 /* BLOCKNOTE */
 div.mantine-Editor-root > div > div[data-node-type="blockGroup"] {
 	padding-left: 8px !important;
@@ -23,7 +28,7 @@ input.mantine-Input-input.mantine-TextInput-input {
 	border: 1px solid #bababa !important;
 }
 div.mantine-Group-root.mantine-Toolbar-root {
-	@apply flex-wrap sm:flex-nowrap overflow-auto
+	@apply flex-wrap sm:flex-nowrap overflow-auto;
 }
 
 /* REACT QUILL  */
