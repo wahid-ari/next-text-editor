@@ -43,7 +43,7 @@ export default function BlockNote() {
           </h1>
           <p className="dark:text-white mb-4">Image inserted not ready yet {' '} 
           <a className="text-sky-500" target='_blank' href='https://github.com/TypeCellOS/BlockNote/issues/282'>Issue</a>
-          - {' '}
+            {' '} - {' '}
             <a className="text-sky-500" target='_blank' href='https://github.com/TypeCellOS/BlockNote/pull/331'>Progress</a>
           </p>
 

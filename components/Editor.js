@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+// import Image from "next/image";
 import { useTheme } from "next-themes";
 import {
   defaultBlockSchema,
@@ -11,7 +12,6 @@ import {
   getDefaultReactSlashMenuItems,
 } from "@blocknote/react";
 import "@blocknote/core/style.css";
-import Image from "next/image";
 
 // Custom light theme
 const lightTheme = {
@@ -155,6 +155,7 @@ export default function Editor({ value, setValue }) {
             //     text: 'lala'
             //   }
             // ],
+            content: "This block was inserted!",
             type: "image",
             props: {
               src: src || "https://via.placeholder.com/100",
@@ -200,6 +201,8 @@ export default function Editor({ value, setValue }) {
     ],
   });
 
+  console.log("a new editor instance.", editor)
+
   useEffect(() => {
     if (editor) {
       // Whenever the current HTML content changes, converts it to an array of 
@@ -207,7 +210,7 @@ export default function Editor({ value, setValue }) {
       console.log("useEffect editor")
       const getBlocks = async () => {
         const blocks = await editor.HTMLToBlocks(value);
-        console.log(blocks)
+        console.log("HTMLToBlocks", blocks)
         editor.replaceBlocks(editor.topLevelBlocks, blocks);
       };
       getBlocks();
