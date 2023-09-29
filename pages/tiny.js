@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { Editor } from "@tinymce/tinymce-react";
-// import axios from "axios";
+import axios from "axios";
 import Navbar from '@components/Navbar';
 import Shimmer from '@components/Shimmer';
 
@@ -29,6 +29,33 @@ export default function Tiny() {
     }, 300);
   }, []);
 
+  // TODO Docs: https://www.tiny.cloud/docs/tinymce/6/file-image-upload/#example-using-images_upload_handler
+  async function image_upload_handler(blobInfo, progress) {
+    console.log(blobInfo)
+    console.log(blobInfo.blob())
+    console.log(blobInfo.filename())
+    console.log(blobInfo)
+    console.log(progress)
+    let imageFile = new FormData();
+    imageFile.append("image", blobInfo.blob());
+    try {
+      const res = await axios.post("https://api.imgbb.com/1/upload?expiration=600&key=3370154ba7d4e63c7c5b9cedcf3ca7a7", imageFile, {
+        // TODO Docs: https://gist.github.com/virolea/e1af9359fe071f24de3da3500ff0f429
+        onUploadProgress: function (progressEvent) {
+          var percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
+          progress(percentCompleted)
+        }
+      })
+      console.log("res", res)
+      if (res.status == 200) {
+        return res.data?.data?.display_url;
+      }
+    } catch (error) {
+      console.error("error", error)
+      return ({ message: 'HTTP Error: ' + error.status, remove: true });
+    }
+  };
+
   return (
     <div>
       <Head>
@@ -52,9 +79,34 @@ export default function Tiny() {
               value={value}
               onEditorChange={setValue}
               init={{
+                mobile: {
+                  menubar: true
+                },
                 height: 200,
                 promotion: false,
-                // FIX Upload image
+                file_picker_types: 'image',
+                images_upload_handler: image_upload_handler,
+                // TODO Docs: https://www.tiny.cloud/docs/tinymce/6/file-image-upload/#example-using-file_picker_callback
+                // TODO Docs: https://www.tiny.cloud/docs/configure/file-image-upload/#interactiveexample
+                file_picker_callback: function (cb, value, meta) {
+                  var input = document.createElement('input');
+                  input.setAttribute('type', 'file');
+                  input.setAttribute('accept', 'image/*');
+                  input.onchange = function () {
+                    var file = this.files[0];
+                    var reader = new FileReader();
+                    reader.onload = function () {
+                      var id = 'blobid' + (new Date()).getTime();
+                      var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                      var base64 = reader.result.split(',')[1];
+                      var blobInfo = blobCache.create(id, file, base64);
+                      blobCache.add(blobInfo);
+                      cb(blobInfo.blobUri(), { title: file.name });
+                    };
+                    reader.readAsDataURL(file);
+                  };
+                  input.click();
+                },
                 // TODO Docs : https://www.tiny.cloud/docs/tinymce/6/available-toolbar-buttons/
                 // TODO Docs : https://www.tiny.cloud/docs/tinymce/6/accordion/
                 plugins: ['autoresize', 'image', 'link', 'autolink', 'media', 'table', 'codesample', 'lists', 'code', 'anchor', 'accordion', 'advlist', 'emoticons', 'fullscreen', 'insertdatetime', 'preview', 'searchreplace', 'visualblocks', 'visualchars'],
