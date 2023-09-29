@@ -47,7 +47,20 @@ export default function Quill() {
     }),
     []);
 
-  const [description, setDescription] = useState('');
+  const [description, setDescription] = useState(`<h2>What to expect from here on out</h2>
+      <p>What follows from here is just a bunch of absolute nonsense I've written to dogfood the plugin itself. It includes every sensible typographic element I could think of, like <strong>bold text</strong>, unordered lists, ordered lists, code blocks, block quotes, <em>and even italics</em>.</p>
+      <p>It's important to cover all of these use cases for a few reasons:</p>
+      <ol>
+        <li>We want everything to look good out of the box.</li>
+        <li>Really just the first reason, that's the whole point of the plugin.</li>
+        <li>Here's a third pretend reason though a list with three items looks more realistic than a list with two items.</li>
+      </ol>
+      <p>Now we're going to try out another header style.</p>
+      <h3>Typography should be easy</h3>
+      <p>So that's a header for you — with any luck if we've done our job correctly that will look pretty reasonable.</p>
+      <p>Something a wise person once told me about typography is:</p>
+      <blockquote><p>Typography is pretty important if you don't want your stuff to look like trash. Make it good then it won't be bad.</p></blockquote>
+      <p>It's probably important that images look okay here by default as well:</p>`);
 
   function handleDescriptionChange(e) {
     setDescription(e);
@@ -152,11 +165,12 @@ export default function Quill() {
             React Quill
           </h1>
 
-          <div className="font-normal text-lg font-sans bg-white rounded dark:text-neutral-800 mb-3">
+          <div className="font-normal text-lg font-sans rounded dark:text-neutral-800 mb-3">
             <ReactQuillImage
               theme="snow"
               onChange={handleDescriptionChange}
               modules={modules}
+              value={description}
               forwardedRef={editorRef}
             />
           </div>
@@ -172,7 +186,7 @@ export default function Quill() {
 
           <h2 className="text-xl dark:text-white font-semibold mb-4 border-b dark:border-b-neutral-700 pb-2">ReadOnly</h2>
 
-          <div className="font-normal text-lg font-sans bg-white rounded dark:text-neutral-800 mb-3">
+          <div className="font-normal text-lg font-sans border dark:border-neutral-700 rounded dark:text-neutral-800 mb-3">
             <ReactQuill
               theme="bubble"
               value={description}
@@ -190,7 +204,7 @@ export default function Quill() {
             React Quill Default Value
           </h1>
 
-          <div className="font-normal text-lg font-sans bg-white rounded dark:text-neutral-800 mb-3">
+          <div className="font-normal text-lg font-sans rounded dark:text-neutral-800 mb-3">
             <ReactQuill
               theme="snow"
               value={defaultValue}
@@ -209,7 +223,7 @@ export default function Quill() {
 
           <h2 className="text-xl dark:text-white font-semibold mb-4 border-b dark:border-b-neutral-700 pb-2">Read Only Default Value</h2>
 
-          <div className="font-normal text-lg font-sans bg-white rounded dark:text-neutral-800 mb-3">
+          <div className="font-normal text-lg font-sans border dark:border-neutral-700 rounded dark:text-neutral-800 mb-3">
             <ReactQuill
               theme="bubble"
               value={defaultValue}

@@ -35,6 +35,57 @@ div.mantine-Group-root.mantine-Toolbar-root {
 .ql-container.ql-snow {
 	min-height: 200px;
 }
+.ql-toolbar.ql-snow {
+	@apply dark:!border-neutral-700;
+}
+.ql-picker-label {
+	@apply dark:!text-white;
+}
+.ql-picker-options {
+	@apply dark:!bg-neutral-900 dark:text-neutral-100 dark:!border-neutral-700;
+}
+span[aria-expanded="true"].ql-picker-label {
+	@apply dark:!border-neutral-700;
+}
+.ql-snow .ql-stroke {
+	@apply dark:stroke-neutral-300;
+}
+.ql-snow .ql-stroke-miter {
+  @apply dark:stroke-neutral-300;
+}
+.ql-snow .ql-fill,
+.ql-snow .ql-stroke.ql-fill {
+	@apply dark:fill-neutral-300;
+}
+.ql-container.ql-snow {
+	@apply dark:!border-neutral-700;
+}
+.ql-editor {
+	@apply dark:!text-neutral-200 text-[15px];
+	/* @apply dark:!text-neutral-200 !prose dark:!prose-invert; */
+}
+.ql-tooltip {
+	@apply dark:!bg-neutral-800 dark:!shadow-none dark:!border-neutral-700 dark:!text-neutral-100;
+}
+.ql-tooltip.ql-editing {
+	@apply dark:bg-neutral-800 dark:shadow-none dark:border-neutral-700 dark:text-neutral-100;
+}
+.ql-tooltip.ql-editing > input {
+	@apply dark:bg-neutral-800 dark:shadow-none dark:!border-neutral-700 dark:text-neutral-100;
+}
+/* 
+.ql-picker-label {
+	@apply dark:!text-white dark:hover:!invert-0;
+}
+.ql-picker-label > svg {
+	@apply dark:invert;
+}
+.ql-picker-options > .ql-picker-item > svg {
+	@apply dark:invert;
+}
+.ql-formats > button {
+	@apply dark:invert;
+} */
 
 /* REACT DRAFT WYSWYG  */
 .rdw-dropdown-wrapper {
@@ -76,6 +127,89 @@ div.mantine-Group-root.mantine-Toolbar-root {
 
 .rdw-image-modal-url-section > input {
 	@apply dark:bg-white;
+}
+
+/* REACT DRAFT THEME */
+.rdw-editor-toolbar {
+	@apply dark:bg-neutral-900 dark:border-neutral-800;
+}
+.rdw-option-wrapper {
+	@apply dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:border-neutral-800 dark:hover:shadow dark:hover:shadow-neutral-700;
+}
+.rdw-option-wrapper > img {
+	@apply dark:invert;
+}
+.rdw-dropdown-wrapper {
+	@apply dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:text-neutral-100 dark:border-neutral-800 dark:hover:shadow dark:hover:shadow-neutral-700;
+}
+.rdw-dropdown-carettoopen, .rdw-dropdown-carettoclose {
+	@apply dark:invert;
+}
+.rdw-dropdown-optionwrapper {
+	@apply dark:bg-neutral-900 dark:border-neutral-800 dark:hover:bg-neutral-900 dark:hover:shadow-none;
+}
+.rdw-dropdownoption-highlighted {
+  @apply dark:bg-neutral-800;
+}
+.rdw-dropdownoption-active {
+  @apply dark:bg-neutral-800;
+}
+.rdw-colorpicker-modal {
+	@apply dark:bg-neutral-900 dark:text-neutral-100 dark:border-neutral-800 dark:shadow-none;
+}
+.rdw-link-modal {
+	@apply dark:bg-neutral-900 dark:text-neutral-100 dark:border-neutral-800 dark:shadow-none;
+}
+.rdw-link-modal-input {
+	@apply dark:!bg-neutral-900 dark:border-neutral-800;
+}
+.rdw-link-modal-target-option > input {
+	@apply dark:!bg-neutral-900 dark:border-neutral-700 rounded dark:ring-offset-neutral-900;
+}
+.rdw-link-modal-target-option > span {
+	@apply !ml-2;
+}
+.rdw-link-modal-btn {
+	@apply dark:bg-neutral-700 dark:text-white disabled:cursor-not-allowed dark:border-neutral-800 dark:disabled:bg-neutral-700 dark:hover:bg-neutral-800 transition-all dark:hover:shadow-none;
+}
+.rdw-embedded-modal {
+	@apply dark:bg-neutral-900 dark:text-neutral-100 dark:border-neutral-800 dark:shadow-none;
+}
+.rdw-embedded-modal-link-input, .rdw-embedded-modal-size-input, .rdw-embedded-modal-size-input {
+	@apply dark:!bg-neutral-900 dark:border-neutral-700 rounded dark:ring-offset-neutral-900;
+}
+.rdw-embedded-modal-btn {
+	@apply dark:bg-neutral-700 dark:text-white disabled:cursor-not-allowed dark:border-neutral-800 dark:disabled:bg-neutral-700 dark:hover:bg-neutral-800 transition-all dark:hover:shadow-none;
+}
+.rdw-emoji-modal {
+	@apply dark:bg-neutral-900 dark:text-neutral-100 dark:border-neutral-800 dark:shadow-none;
+}
+.rdw-image-modal {
+	@apply dark:bg-neutral-900 dark:text-neutral-100 dark:border-neutral-800 dark:shadow-none;
+}
+.rdw-image-modal-header-label, .rdw-embedded-modal-header-label {
+	@apply dark:border-blue-600;
+}
+.rdw-image-modal-url-input, .rdw-image-modal-size-input {
+	@apply dark:!bg-neutral-900 dark:border-neutral-700 rounded dark:ring-offset-neutral-900;
+}
+.rdw-image-modal-btn {
+	@apply dark:bg-neutral-700 dark:text-white disabled:cursor-not-allowed dark:border-neutral-800 dark:disabled:bg-neutral-700 dark:hover:bg-neutral-800 transition-all dark:hover:shadow-none;
+}
+.rdw-dropdown-selectedtext > img {
+	@apply dark:invert;
+}
+.rdw-dropdownoption-default.rdw-inline-dropdownoption > img {
+	@apply dark:invert;
+}
+.rdw-dropdownoption-default.rdw-link-dropdownoption > img {
+	@apply dark:invert;
+}
+.rdw-image-modal-upload-option {
+	@apply dark:bg-neutral-800;
+}
+.rdw-dropdownoption-default.rdw-history-dropdownoption> img {
+	@apply dark:invert;
 }
 
 /* WANGEDITOR  */

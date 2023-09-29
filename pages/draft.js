@@ -44,7 +44,7 @@ export default function Draft() {
     setDefaultValue({
       value: EditorState.createWithContent(
         ContentState.createFromBlockArray(
-          convertFromHTML(`<h3>When a heading comes after a paragraph …</h3>
+          convertFromHTML(`<h3>When a heading comes after a paragraph</h3>
       <p>When a heading comes after a paragraph, we need a bit more space, like I already mentioned above. Now let's see what a more complex list would look like.</p>
       <ul>
         <li>
@@ -155,10 +155,10 @@ export default function Draft() {
 
           <div className={`font-normal font-sans border-2 dark:border-neutral-700 rounded-lg mb-3`}>
             <Editor
-              wrapperClassName="min-h-[16rem] bg-white p-2 rounded"
+              wrapperClassName="min-h-[16rem] p-2 rounded"
               editorState={description.description}
               onEditorStateChange={handleDescriptionChange}
-              editorClassName="prose min-w-full"
+              editorClassName="prose dark:prose-invert min-w-full"
             />
           </div>
 
@@ -171,7 +171,7 @@ export default function Draft() {
             }
           </div>
 
-                <h2 className="text-xl dark:text-white font-semibold mb-4 border-b dark:border-b-neutral-700 pb-2">Preview</h2>
+          <h2 className="text-xl dark:text-white font-semibold mb-4 border-b dark:border-b-neutral-700 pb-2">Preview</h2>
           <div dangerouslySetInnerHTML={{ __html: stateToHTML(description.description.getCurrentContent()) }} />
 
           <hr className="border dark:border-neutral-700 my-8" />
@@ -181,8 +181,8 @@ export default function Draft() {
             <Editor
               editorState={descriptionn.descriptionn}
               toolbarClassName="toolbar-class"
-              wrapperClassName="wrapper-class min-h-[8rem] bg-white p-2 rounded"
-              editorClassName="editor-class prose min-w-full prose-img:my-0 prose-p:py-0"
+              wrapperClassName="wrapper-class min-h-[8rem] p-2 rounded"
+              editorClassName="editor-class prose dark:prose-invert min-w-full prose-img:my-0 prose-p:py-0"
               onEditorStateChange={handleDescriptionnChange}
               // toolbarOnFocus
               toolbar={{
@@ -218,10 +218,10 @@ export default function Draft() {
 
           <div className={`font-normal font-sans border-2 dark:border-neutral-700 rounded-lg mb-3`}>
             <Editor
-              wrapperClassName="min-h-[10rem] bg-white p-2 rounded"
+              wrapperClassName="min-h-[10rem] p-2 rounded"
               editorState={defaultValue.value}
               onEditorStateChange={handleValueChange}
-              editorClassName="prose min-w-full"
+              editorClassName="prose dark:prose-invert min-w-full"
             />
           </div>
 
