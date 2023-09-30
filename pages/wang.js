@@ -20,7 +20,20 @@ const MyEditor = dynamic(
 
 export default function Wang() {
   // editor content
-  const [html, setHtml] = useState('<p>hello</p>')
+  const [html, setHtml] = useState(`<h2>What to expect from here on out</h2>
+      <p>What follows from here is just a bunch of absolute nonsense I've written to dogfood the plugin itself. It includes every sensible typographic element I could think of, like <strong>bold text</strong>, unordered lists, ordered lists, code blocks, block quotes, <em>and even italics</em>.</p>
+      <p>It's important to cover all of these use cases for a few reasons:</p>
+      <ol>
+        <li>We want everything to look good out of the box.</li>
+        <li>Really just the first reason, that's the whole point of the plugin.</li>
+        <li>Here's a third pretend reason though a list with three items looks more realistic than a list with two items.</li>
+      </ol>
+      <p>Now we're going to try out another header style.</p>
+      <h3>Typography should be easy</h3>
+      <p>So that's a header for you — with any luck if we've done our job correctly that will look pretty reasonable.</p>
+      <p>Something a wise person once told me about typography is:</p>
+      <blockquote><p>Typography is pretty important if you don't want your stuff to look like trash. Make it good then it won't be bad.</p></blockquote>
+      <p>It's probably important that images look okay here by default as well:</p>`)
 
   return (
     <div>

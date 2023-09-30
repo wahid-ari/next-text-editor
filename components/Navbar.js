@@ -20,14 +20,14 @@ export default function Navbar() {
         <Link href="/sun" className="text-sky-500 hover:text-sky-600 transition-all font-medium">
           Sun
         </Link>
+        <Link href="/wang" className="text-sky-500 hover:text-sky-600 transition-all font-medium">
+          Wang
+        </Link>
         <Link href="/quill" className="text-sky-500 hover:text-sky-600 transition-all font-medium">
           Quill
         </Link>
         <Link href="/draft" className="text-sky-500 hover:text-sky-600 transition-all font-medium">
           Draft
-        </Link>
-        <Link href="/wang" className="text-sky-500 hover:text-sky-600 transition-all font-medium">
-          Wang
         </Link>
         <Link href="/blocknote" className="text-sky-500 hover:text-sky-600 transition-all font-medium">
           Blocknote

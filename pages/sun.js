@@ -191,7 +191,7 @@ export default function Sun() {
             onImageUploadBefore={handleImageUploadBefore}
             onImageUpload={handleImageUpload}
             onImageUploadError={handleImageUploadError}
-            defaultValue={value}
+            // defaultValue={value}
             placeholder="Please type here..."
             setDefaultStyle="font-family: inter; font-size: 16px;"
             setOptions={{
@@ -221,22 +221,32 @@ export default function Sun() {
                   [':p-More Paragraph-default.more_paragraph', 'font', 'fontSize', 'formatBlock', 'paragraphStyle', 'blockquote'],
                   ['bold', 'underline', 'italic', 'strike'],
                   [':t-More Text-default.more_text', 'subscript', 'superscript', 'fontColor', 'hiliteColor', 'textStyle'],
-                  ['removeFormat'],
                   ['indent', 'outdent'],
                   ['align', 'list', 'horizontalRule', 'lineHeight'],
-                  ['-right', 'dir'],
-                  ['-right', ':i-More Misc-default.more_vertical', 'fullScreen', 'showBlocks', 'codeView', 'preview', 'print', 'save', 'template'],
+                  ['removeFormat'],
+                  ['-right', ':i-More Misc-default.more_vertical', 'fullScreen', 'showBlocks', 'codeView', 'preview', 'print', 'save', 'template', 'dir'],
                   ['-right', ':r-More Rich-default.more_plus', 'link', 'image', 'video', 'audio', 'table', 'math'],
                 ]],
-                // (min-width:768px)
-                ['%768', [
+                // (min-width:720px)
+                ['%720', [
+                  ['undo', 'redo'],
+                  [':p-More Paragraph-default.more_paragraph', 'font', 'fontSize', 'formatBlock', 'paragraphStyle', 'blockquote'],
+                  ['bold', 'underline', 'italic', 'strike'],
+                  [':t-More Text-default.more_text', 'subscript', 'superscript', 'fontColor', 'hiliteColor', 'textStyle'],
+                  [':e-More Line-default.more_horizontal', 'indent', 'outdent', 'align', 'list', 'horizontalRule', 'lineHeight'],
+                  ['align', 'list', 'horizontalRule', 'lineHeight'],
+                  ['removeFormat'],
+                  ['-right', ':r-More Rich-default.more_plus', 'link', 'image', 'video', 'audio', 'table', 'math'],
+                  ['-right', ':i-More Misc-default.more_vertical', 'fullScreen', 'showBlocks', 'codeView', 'preview', 'print', 'save', 'template', 'dir'],
+                ]],
+                // (min-width:640px)
+                ['%640', [
                   ['undo', 'redo'],
                   [':p-More Paragraph-default.more_paragraph', 'font', 'fontSize', 'formatBlock', 'paragraphStyle', 'blockquote'],
                   [':t-More Text-default.more_text', 'bold', 'underline', 'italic', 'strike', 'subscript', 'superscript', 'fontColor', 'hiliteColor', 'textStyle', 'removeFormat'],
                   [':e-More Line-default.more_horizontal', 'indent', 'outdent', 'align', 'list', 'horizontalRule', 'lineHeight'],
                   [':r-More Rich-default.more_plus', 'link', 'image', 'video', 'audio', 'table', 'math'],
-                  ['-right', 'dir'],
-                  ['-right', ':i-More Misc-default.more_vertical', 'fullScreen', 'showBlocks', 'codeView', 'preview', 'print', 'save', 'template']
+                  [':i-More Misc-default.more_vertical', 'fullScreen', 'showBlocks', 'codeView', 'preview', 'print', 'save', 'template', 'dir'],
                 ]],
                 // (min-width: 330)
                 ['%330', [
@@ -245,7 +255,7 @@ export default function Sun() {
                   [':t-More Text-default.more_text', 'bold', 'underline', 'italic', 'strike', 'subscript', 'superscript', 'fontColor', 'hiliteColor', 'textStyle', 'removeFormat'],
                   [':e-More Line-default.more_horizontal', 'indent', 'outdent', 'align', 'list', 'horizontalRule', 'lineHeight'],
                   [':r-More Rich-default.more_plus', 'link', 'image', 'video', 'audio', 'table', 'math'],
-                  ['-right', ':i-More Misc-default.more_vertical', 'fullScreen', 'showBlocks', 'codeView', 'preview', 'print', 'save', 'template', 'dir']
+                  [':i-More Misc-default.more_vertical', 'fullScreen', 'showBlocks', 'codeView', 'preview', 'print', 'save', 'template', 'dir']
                 ]]
               ]
             }}

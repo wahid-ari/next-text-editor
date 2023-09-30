@@ -207,12 +207,12 @@ export default function MyEditor({ html, setHtml }) {
 
   return (
     <>
-      <div className="bg-white dark:bg-white border-2 rounded mb-3">
+      <div className="border-2 dark:border-neutral-800 rounded mb-3">
         <Toolbar
           editor={editor}
           defaultConfig={toolbarConfig}
           mode="default"
-          className="border-b-2 rounded-t-sm p-1"
+          className="border-b-2 dark:border-neutral-800 rounded-t-sm p-1"
         />
         <Editor
           defaultConfig={editorConfig}
@@ -220,7 +220,7 @@ export default function MyEditor({ html, setHtml }) {
           onCreated={setEditor}
           onChange={editor => setHtml(editor.getHtml())}
           mode="default"
-          className="overflow-y-hidden prose prose-a:text-blue-500 min-w-full prose-pre:text-black prose-img:rounded"
+          className="overflow-y-hidden prose dark:!prose-invert prose-a:text-blue-500 min-w-full prose-pre:text-black prose-img:rounded"
           style={{ height: '500px' }}
         />
       </div>
