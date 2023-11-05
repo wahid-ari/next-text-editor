@@ -13,7 +13,7 @@ import Shimmer from "@components/Shimmer";
 export default function Quill() {
 
   // TODO Docs : https://abdullahcanakci.org/en/posts/reactquill-imageupload/
-  const   ReactQuillImage = useMemo(() => dynamic(
+  const ReactQuillImage = useMemo(() => dynamic(
     async () => {
       hljs.configure({
         languages: ['javascript', 'php', 'go']
@@ -47,7 +47,8 @@ export default function Quill() {
     }),
     []);
 
-  const [description, setDescription] = useState(`<h2>What to expect from here on out</h2>
+  const [description, setDescription] = useState(`<h1>What to expect from here on out</h1>
+      <p>What follows from here is just a bunch of absolute nonsense I've written to dogfood the plugin itself. It includes every sensible typographic element I could think of, like <strong>bold text</strong>, unordered lists, ordered lists, code blocks, block quotes, <em>and even italics</em>.</p><h2>What to expect from here on out</h2>
       <p>What follows from here is just a bunch of absolute nonsense I've written to dogfood the plugin itself. It includes every sensible typographic element I could think of, like <strong>bold text</strong>, unordered lists, ordered lists, code blocks, block quotes, <em>and even italics</em>.</p>
       <p>It's important to cover all of these use cases for a few reasons:</p>
       <ol>
@@ -59,8 +60,13 @@ export default function Quill() {
       <h3>Typography should be easy</h3>
       <p>So that's a header for you — with any luck if we've done our job correctly that will look pretty reasonable.</p>
       <p>Something a wise person once told me about typography is:</p>
+      <h4>Typography should be easy</h4>
       <blockquote><p>Typography is pretty important if you don't want your stuff to look like trash. Make it good then it won't be bad.</p></blockquote>
-      <p>It's probably important that images look okay here by default as well:</p>`);
+      <p>It's probably important that images look okay here by default as well:</p>
+      <h4>Video</h4>
+      <iframe frameborder="0" allowfullscreen="true" src="https://www.youtube.com/embed/GfO-3Oir-qM?showinfo=0"></iframe>
+      <h4>Image</h4>
+      <img src="https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&amp;fit=crop&amp;q=60&amp;w=500">`);
 
   function handleDescriptionChange(e) {
     setDescription(e);
@@ -130,6 +136,51 @@ export default function Quill() {
     },
   }), []);
 
+  // TODO Docs https://github.com/quilljs/quill/issues/2044#issuecomment-603630374
+  // TODO Docs https://stackoverflow.com/questions/59602182/quill-add-image-url-instead-of-uploading-it
+  function imageUrlHandler() {
+    const tooltip = this.quill.theme.tooltip;
+    const originalSave = tooltip.save;
+    const originalHide = tooltip.hide;
+    tooltip.save = function () {
+      const range = this.quill.getSelection(true);
+      const value = this.textbox.value;
+      if (value) {
+        this.quill.insertEmbed(range.index, 'image', value, 'user');
+      }
+    };
+    tooltip.hide = function () {
+      tooltip.save = originalSave;
+      tooltip.hide = originalHide;
+      tooltip.hide();
+    };
+    tooltip.edit('image');
+    tooltip.textbox.placeholder = 'Image URL';
+  }
+
+  const moduless = useMemo(
+    () => ({
+      toolbar: {
+        container: [
+          [{ header: [1, 2, 3, 4, false] }],
+          [{ size: ['small', false, 'large', 'huge'] }],
+          [{ align: [] }],
+          ['bold', 'italic', 'underline', 'strike'],
+          ['blockquote', 'code-block'],
+          [{ list: 'ordered' }, { list: 'bullet' }, { indent: '-1' }, { indent: '+1' }],
+          ['link', 'image', 'video'],
+          [{ script: 'sub' }, { script: 'super' }],
+          [{ color: [] }, { background: [] }],
+          ['clean'],
+        ],
+        handlers: {
+          image: imageUrlHandler,
+        },
+      },
+    }),
+    []
+  );
+
   const [defaultValue, setDefaultValue] = useState(`<h2>What to expect from here on out</h2>
       <p>What follows from here is just a bunch of absolute nonsense I've written to dogfood the plugin itself. It includes every sensible typographic element I could think of, like <strong>bold text</strong>, unordered lists, ordered lists, code blocks, block quotes, <em>and even italics</em>.</p>
       <p>It's important to cover all of these use cases for a few reasons:</p>
@@ -172,6 +223,7 @@ export default function Quill() {
               modules={modules}
               value={description}
               forwardedRef={editorRef}
+              placeholder='Destination Content'
             />
           </div>
 
@@ -196,19 +248,25 @@ export default function Quill() {
 
           <h2 className="text-xl dark:text-white font-semibold mb-4 border-b dark:border-b-neutral-700 pb-2">Preview</h2>
 
-          <div className="ql-editor !p-0 !prose dark:!prose-invert" dangerouslySetInnerHTML={{ __html: description }} />
+          <div className="
+              ql-editor !p-0 !prose dark:!prose-invert !max-w-none prose-video:!w-96
+              prose-img:mx-auto prose-img:rounded prose-img:object-center prose-img:h-64
+              prose-img:w-full prose-img:!max-w-2xl prose-img:sm:h-72 prose-img:md:h-96
+              prose-blockquote:!my-3" dangerouslySetInnerHTML={{ __html: description }} />
 
           <hr className="border dark:border-neutral-700 my-8" />
 
           <h1 className="text-3xl text-neutral-800 dark:text-white font-semibold tracking-wide mb-8">
-            React Quill Default Value
+            React Quill Default Value Insert Image URL
           </h1>
 
           <div className="font-normal text-lg font-sans rounded dark:text-neutral-800 mb-3">
             <ReactQuill
               theme="snow"
+              modules={moduless}
               value={defaultValue}
               onChange={handleValueChange}
+              placeholder='Destination Content'
             />
           </div>
 
