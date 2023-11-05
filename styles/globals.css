@@ -33,130 +33,173 @@ div.mantine-Group-root.mantine-Toolbar-root {
 
 /* REACT QUILL  */
 .ql-container.ql-snow {
-  min-height: 200px;
+	min-height: 200px;
 }
 .ql-toolbar.ql-snow {
-  @apply rounded-t-md dark:!border-neutral-700;
+	@apply rounded-t-md dark:!border-neutral-700;
 }
 .ql-container.ql-snow {
-  @apply rounded-b-md dark:!border-neutral-700;
+	@apply rounded-b-md dark:!border-neutral-700;
 }
 .ql-picker-label {
-  @apply dark:!text-white;
+	@apply dark:!text-white;
 }
 .ql-picker-options {
-  @apply dark:!border-neutral-700 dark:!bg-neutral-900 dark:text-neutral-100;
+	@apply dark:!border-neutral-700 dark:!bg-neutral-900 dark:text-neutral-100;
 }
-span[aria-expanded='true'].ql-picker-label {
-  @apply dark:!border-neutral-700;
+span[aria-expanded="true"].ql-picker-label {
+	@apply dark:!border-neutral-700;
 }
 .ql-snow .ql-stroke {
-  @apply dark:stroke-neutral-300;
+	@apply dark:stroke-neutral-300;
 }
 .ql-snow .ql-stroke-miter {
-  @apply dark:stroke-neutral-300;
+	@apply dark:stroke-neutral-300;
 }
 .ql-snow .ql-fill,
 .ql-snow .ql-stroke.ql-fill {
-  @apply dark:fill-neutral-300;
+	@apply dark:fill-neutral-300;
 }
 .ql-container.ql-snow {
-  @apply dark:!border-neutral-700;
+	@apply dark:!border-neutral-700;
 }
 .ql-editor {
-  @apply text-[15px] dark:!text-neutral-200;
-  /* @apply dark:!text-neutral-200 !prose dark:!prose-invert; */
+	@apply text-[15px] dark:!text-neutral-200;
+	/* @apply dark:!text-neutral-200 !prose dark:!prose-invert; */
 }
 .ql-tooltip {
-  @apply dark:!border-neutral-700 dark:!bg-neutral-800 dark:!text-neutral-100 dark:!shadow-none;
+	@apply dark:!border-neutral-700 dark:!bg-neutral-800 dark:!text-neutral-100 dark:!shadow-none;
 }
 .ql-tooltip.ql-editing {
-  @apply dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:shadow-none;
+	@apply dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:shadow-none;
 }
 .ql-tooltip.ql-editing > input {
-  @apply dark:!border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:shadow-none;
+	@apply dark:!border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:shadow-none;
 }
 
 /* TEXT INSIDE EDITOR */
 .ql-editor.ql-blank::before {
-  @apply pt-2 text-neutral-600 dark:text-neutral-400;
+	@apply pt-2 text-neutral-600 dark:text-neutral-400;
 }
 
 .ql-snow .ql-editor h1 {
-  @apply mb-1 mt-4 font-bold text-neutral-950 dark:text-white;
+	@apply mb-1 mt-4 font-bold text-neutral-950 dark:text-white;
 }
 
 .ql-snow .ql-editor h2 {
-  @apply mb-1 mt-4 font-bold text-neutral-950 dark:text-white;
+	@apply mb-1 mt-4 font-bold text-neutral-950 dark:text-white;
 }
 
 .ql-snow .ql-editor h3 {
-  @apply mb-1 mt-4 font-semibold text-neutral-950 dark:text-white;
+	@apply mb-1 mt-4 font-semibold text-neutral-950 dark:text-white;
 }
 
 .ql-snow .ql-editor h4 {
-  @apply mb-1 mt-4 font-semibold text-neutral-950 dark:text-white;
+	@apply mb-1 mt-4 font-semibold text-neutral-950 dark:text-white;
 }
 
 .ql-snow .ql-editor p {
-  @apply my-1 leading-6 text-neutral-800 dark:text-neutral-200;
+	@apply my-1 leading-6 text-neutral-800 dark:text-neutral-200;
 }
 
 .ql-snow .ql-editor ol {
-  @apply my-2;
+	@apply my-2;
 }
 
 .ql-snow .ql-editor ol > li {
-  @apply my-1;
+	@apply my-1;
 }
 
 .ql-snow .ql-editor blockquote {
-  @apply !my-2;
+	@apply !my-2;
 }
 
 .ql-snow .ql-editor img {
-  @apply mx-auto my-4 h-64 w-full !max-w-2xl rounded object-center sm:h-72 md:h-96;
+	@apply mx-auto my-4 h-64 w-full !max-w-2xl rounded object-center sm:h-72 md:h-96;
 }
 
 .ql-editor .ql-video {
-  @apply mx-auto my-4 h-64 w-full !max-w-2xl sm:h-72 md:h-96;
+	@apply mx-auto my-4 h-64 w-full !max-w-2xl sm:h-72 md:h-96;
+}
+
+.ql-snow .ql-tooltip[data-mode="link"]::before {
+	content: "Enter link :" !important;
+	font-size: 14px;
+}
+
+.ql-snow .ql-tooltip::before {
+	content: "Image URL :" !important;
+	font-size: 14px;
+}
+
+.ql-snow .ql-tooltip[data-mode="video"]::before {
+	content: "Video URL :" !important;
+	font-size: 14px;
+}
+
+.ql-snow .ql-tooltip input[type="text"] {
+	font-size: 14px !important;
+	border-radius: 4px;
+	height: 28px !important;
+}
+
+.ql-snow .ql-tooltip a.ql-action::after {
+	margin-left: 0px !important;
+}
+
+.ql-snow a {
+	color: white !important;
+	background: rgb(9, 116, 255);
+	padding: 6px 12px;
+	margin-left: 6px;
+	border-radius: 4px;
+	font-weight: 700;
+}
+
+.ql-snow .ql-tooltip {
+	border-radius: 4px;
+	padding: 8px 8px !important;
 }
 
 /* Quill Read Only */
 .ql-bubble .ql-editor h1 {
-  @apply mb-1 mt-4 font-bold text-neutral-950 dark:text-white;
+	@apply mb-1 mt-4 font-bold text-neutral-950 dark:text-white;
 }
 
 .ql-bubble .ql-editor h2 {
-  @apply mb-1 mt-4 font-bold text-neutral-950 dark:text-white;
+	@apply mb-1 mt-4 font-bold text-neutral-950 dark:text-white;
 }
 
 .ql-bubble .ql-editor h3 {
-  @apply mb-1 mt-4 font-semibold text-neutral-950 dark:text-white;
+	@apply mb-1 mt-4 font-semibold text-neutral-950 dark:text-white;
 }
 
 .ql-bubble .ql-editor h4 {
-  @apply mb-1 mt-4 font-semibold text-neutral-950 dark:text-white;
+	@apply mb-1 mt-4 font-semibold text-neutral-950 dark:text-white;
 }
 
 .ql-bubble .ql-editor p {
-  @apply my-1 leading-6 text-neutral-800 dark:text-neutral-200;
+	@apply my-1 leading-6 text-neutral-800 dark:text-neutral-200;
 }
 
 .ql-bubble .ql-editor ol {
-  @apply my-2;
+	@apply my-2;
 }
 
 .ql-bubble .ql-editor ol > li {
-  @apply my-1;
+	@apply my-1;
 }
 
 .ql-bubble .ql-editor blockquote {
-  @apply !my-2;
+	@apply !my-2;
 }
 
 .ql-bubble .ql-editor img {
-  @apply mx-auto my-4 h-64 w-full !max-w-2xl rounded object-center sm:h-72 md:h-96;
+	@apply mx-auto my-4 h-64 w-full !max-w-2xl rounded object-center sm:h-72 md:h-96;
+}
+
+.ql-bubble .ql-video {
+	@apply mx-auto my-4 h-64 w-full !max-w-2xl sm:h-72 md:h-96;
 }
 /* 
 .ql-picker-label {
@@ -171,7 +214,6 @@ span[aria-expanded='true'].ql-picker-label {
 .ql-formats > button {
 	@apply dark:invert;
 } */
-
 
 /* REACT DRAFT WYSWYG  */
 .rdw-dropdown-wrapper {
@@ -406,6 +448,7 @@ span[contenteditable="false"] > input[type="checkbox"] {
 .w-e-text-container [data-slate-editor] table th {
 	@apply dark:bg-neutral-800;
 }
-.w-e-text-container [data-slate-editor] table td, .w-e-text-container [data-slate-editor] table th {
-@apply dark:border-neutral-600;
+.w-e-text-container [data-slate-editor] table td,
+.w-e-text-container [data-slate-editor] table th {
+	@apply dark:border-neutral-600;
 }
