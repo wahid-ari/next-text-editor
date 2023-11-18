@@ -127,7 +127,41 @@ span[aria-expanded="true"].ql-picker-label {
 	font-size: 14px;
 }
 
-.ql-snow .ql-tooltip::before {
+.ql-snow .ql-tooltip a.ql-preview {
+  margin-right: 8px;
+}
+
+.ql-snow .ql-tooltip a.ql-action {
+  color: white !important;
+  background: rgb(9, 116, 255);
+  padding: 6px 12px;
+  margin-left: 6px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.ql-snow .ql-tooltip a.ql-remove {
+  color: white !important;
+  background: rgb(9, 116, 255);
+  padding: 6px 12px;
+  margin-left: 6px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.ql-snow .ql-tooltip a.ql-action::after {
+  border-right: none !important;
+  content: 'Edit';
+  margin-left: 16px;
+  padding-right: 0px !important;
+}
+
+.ql-snow .ql-tooltip a.ql-remove::before {
+  content: 'Remove';
+  margin-left: 0px !important;
+}
+
+.ql-snow .ql-tooltip[data-mode='image']::before {
 	content: "Image URL :" !important;
 	font-size: 14px;
 }
@@ -147,7 +181,7 @@ span[aria-expanded="true"].ql-picker-label {
 	margin-left: 0px !important;
 }
 
-.ql-snow a {
+.ql-tooltip.ql-editing a.ql-action {
 	color: white !important;
 	background: rgb(9, 116, 255);
 	padding: 6px 12px;
