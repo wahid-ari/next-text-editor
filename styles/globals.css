@@ -83,23 +83,23 @@ span[aria-expanded="true"].ql-picker-label {
 }
 
 .ql-snow .ql-editor h1 {
-	@apply mb-1 mt-4 font-bold text-neutral-950 dark:text-white;
+	@apply mb-1 mt-4 pb-3 font-bold text-neutral-950 dark:text-white;
 }
 
 .ql-snow .ql-editor h2 {
-	@apply mb-1 mt-4 font-bold text-neutral-950 dark:text-white;
+	@apply mb-1 mt-4 pb-3 font-bold text-neutral-950 dark:text-white;
 }
 
 .ql-snow .ql-editor h3 {
-	@apply mb-1 mt-4 font-semibold text-neutral-950 dark:text-white;
+	@apply mb-1 mt-4 pb-3 font-semibold text-neutral-950 dark:text-white;
 }
 
 .ql-snow .ql-editor h4 {
-	@apply mb-1 mt-4 font-semibold text-neutral-950 dark:text-white;
+	@apply mb-1 mt-4 pb-3 font-semibold text-neutral-950 dark:text-white;
 }
 
 .ql-snow .ql-editor p {
-	@apply my-1 leading-6 text-neutral-800 dark:text-neutral-200;
+	@apply my-1 pb-4 leading-6 text-neutral-800 dark:text-neutral-200;
 }
 
 .ql-snow .ql-editor ol {
